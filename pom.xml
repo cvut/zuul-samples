@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cz.cvut.zuul</groupId>
+        <artifactId>zuul-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+
+    <!--//////////////////// MODULES ////////////////////-->
+
+    <modules>
+        <module>simple-portlet-client</module>
+        <module>simple-provider</module>
+        <module>simple-spring-client</module>
+    </modules>
+
+
+    <!--//////////////////// DESCRIPTION ////////////////////-->
+
+    <groupId>cz.cvut.zuul.samples</groupId>
+    <artifactId>zuul-samples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Zuul Samples</name>
+
+    <scm>
+        <url>https://gitlab.fit.cvut.cz/jirutjak/ctu-oauth-samples</url>
+        <connection>scm:git:ssh://git@gitlab.fit.cvut.cz:jirutjak/ctu-oauth-samples.git</connection>
+        <developerConnection>scm:git:ssh://git@gitlab.fit.cvut.cz:jirutjak/ctu-oauth-samples.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GitLab</system>
+        <url>https://gitlab.fit.cvut.cz/jirutjak/ctu-oauth-samples/issues</url>
+    </issueManagement>
+
+
+    <!--//////////////////// REPOSITORIES ////////////////////-->
+
+    <repositories>
+        <repository>
+            <id>cvut-local-repos</id>
+            <name>CVUT Repository Local</name>
+            <url>http://repository.fit.cvut.cz/maven/local-repos/</url>
+        </repository>
+    </repositories>
+
+
+    <!--//////////////////// DEPENDENCIES ////////////////////-->
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- JSR 245 Java Servlet -->
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>2.2.1</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

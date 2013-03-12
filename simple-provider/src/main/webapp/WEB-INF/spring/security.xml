@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+       http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd">
+
+
+    <!--//////// API Security ////////-->
+
+    <sec:authentication-manager id="authenticationManager" />
+    
+    <!-- See docs for EL-based access control http://static.springsource.org/spring-security/site/docs/3.0.x/reference/el-access.html -->
+    <sec:http entry-point-ref="oauthAuthenticationEntryPoint"
+              authentication-manager-ref="authenticationManager"
+              create-session="ifRequired"
+              use-expressions="true">
+
+        <sec:intercept-url pattern="/api/**"
+                           access="#oauth2.hasScope('urn:ctu:oauth:sample.read')"
+                           requires-channel="any" />
+
+        <sec:custom-filter ref="resourceServerFilter" position="PRE_AUTH_FILTER" />
+        <sec:access-denied-handler ref="oauthAccessDeniedHandler" />
+        <sec:expression-handler ref="oauthWebExpressionHandler" />
+    </sec:http>
+
+    <!-- OAuth expression handler for access control -->
+    <oauth:web-expression-handler id="oauthWebExpressionHandler" />
+
+    <!-- Security error handling concerns specific to OAuth2 resources -->
+    <bean id="oauthAccessDeniedHandler" class="org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler" />
+
+    <!-- Client authentication with HTTP Basic scheme. This is the recommended way by specification. -->
+    <bean id="oauthAuthenticationEntryPoint" class="org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint" />
+
+
+
+    <!--//// OAuth2 Resource Provider configuration ////-->
+    
+    <!--
+        Loads an instance of OAuth2AuthenticationProcessingFilter.
+        If resource-id is set, then only tokens that contains this resource id will be accepted.
+    -->
+    <oauth:resource-server id="resourceServerFilter"
+            token-services-ref="tokenServices"
+            resource-id="${oaas.resource_id}" />
+
+    <!-- Token Services that verifies tokens on a remote Authorization Server -->
+    <bean id="tokenServices" class="cz.cvut.oauth.provider.spring.StandaloneResourceServerTokenServices"
+          p:restTemplate-ref="checkTokenRestTemplate"
+          p:checkTokenEndpointUrl="${oaas.check_token_endpoint}"
+          p:method="POST" />
+
+
+
+    <!--//// OAuth2 Client for remote Check Token Endpoint ////-->
+
+    <oauth:rest-template id="checkTokenRestTemplate" resource="check-token-resource" />
+
+    <oauth:resource id="check-token-resource"
+            type="client_credentials"
+            client-id="${oaas.client_id}"
+            client-secret="${oaas.client_secret}"
+            scope="${oaas.scope}"
+            access-token-uri="${oaas.token_endpoint}"
+            client-authentication-scheme="form" />
+
+</beans>
