@@ -13,11 +13,6 @@
         <param-name>webAppRootKey</param-name>
         <param-value>webapp.simple-provider.root</param-value>
     </context-param>
-
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>/WEB-INF/log4j.xml</param-value>
-    </context-param>
     
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -26,10 +21,6 @@
 
 
     <!--//// Listeners ////-->
-
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

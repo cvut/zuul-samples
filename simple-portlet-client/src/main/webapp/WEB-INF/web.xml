@@ -27,11 +27,6 @@
 
     <!--//// Listeners ////-->
 
-    <!-- Bootstrap listener for custom Log4J initialization. -->
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
     <!-- Creates the Spring Container shared by all Servlets and Filters -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
