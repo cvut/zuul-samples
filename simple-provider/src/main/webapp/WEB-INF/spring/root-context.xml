@@ -17,7 +17,7 @@
     <context:annotation-config />
 
     <!-- Registers properties for placeholder replacements. -->
-    <context:property-placeholder location="/WEB-INF/*.properties" />
+    <context:property-placeholder location="classpath:/config/*.properties" />
 
     <!-- Imports security configuration -->
     <import resource="security.xml"/>

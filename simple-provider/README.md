@@ -9,9 +9,7 @@ It’s implemented on top of well-known [Spring Framework](http://www.springsour
 Settings
 --------
 
-Configuration variables are located in `authorization-server.properties` file under `/src/main/webapp/WEB-INF`. These values are included in `WEB-INF/spring/security.xml` where is the Spring security configured.
-
-**authorization-server.properties:**
+Configuration variables are located in `/src/main/resources/config/provider-config.properties`. These values are included in `WEB-INF/spring/security.xml` where is the Spring security configured.
 
 * **oaas.check_token_endpoint** – URL of the Check-Token Endpoint on the Zuul Authorization Server used for validation of incoming Access Tokens.
 * **oaas.client_id** – Client identifier that is registered on the Authorization Server.
