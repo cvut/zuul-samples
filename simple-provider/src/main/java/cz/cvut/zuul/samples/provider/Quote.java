@@ -23,65 +23,20 @@
  */
 package cz.cvut.zuul.samples.provider;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * @author Jakub Jirutka <jakub@jirutka.cz>
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Quote {
 
     private String quotation;
     private String character;
     private String film;
     private Integer year;
-
-
-    public Quote() {
-    }
-
-    public Quote(String quotation, String character, String film, int year) {
-        this.quotation = quotation;
-        this.character = character;
-        this.film = film;
-        this.year = year;
-    }
-
-
-    public String getQuotation() {
-        return quotation;
-    }
-
-    public void setQuotation(String quotation) {
-        this.quotation = quotation;
-    }
-
-    public String getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(String character) {
-        this.character = character;
-    }
-
-    public String getFilm() {
-        return film;
-    }
-
-    public void setFilm(String film) {
-        this.film = film;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "quote {quotation: %s, character: %s, film: %s, year: %s}",
-                quotation, character, film, year
-        );
-    }
 }

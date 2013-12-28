@@ -23,54 +23,16 @@
  */
 package cz.cvut.zuul.samples.client.portlet;
 
+import lombok.Data;
+
 /**
  * @author Jakub Jirutka <jakub@jirutka.cz>
  */
+@Data
 public class Quote {
 
     private String quotation;
     private String character;
     private String film;
     private Integer year;
-
-
-    public String getQuotation() {
-        return quotation;
-    }
-
-    public void setQuotation(String quotation) {
-        this.quotation = quotation;
-    }
-
-    public String getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(String character) {
-        this.character = character;
-    }
-
-    public String getFilm() {
-        return film;
-    }
-
-    public void setFilm(String film) {
-        this.film = film;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "quote {quotation: %s, character: %s, film: %s, year: %s}",
-                quotation, character, film, year
-        );
-    }
 }
