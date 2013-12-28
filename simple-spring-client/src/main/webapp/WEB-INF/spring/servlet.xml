@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="
@@ -21,6 +22,6 @@
 
 
     <bean id="quoteController" class="cz.cvut.zuul.samples.client.QuoteController"
-          p:remoteService-ref="remoteService" />
+          c:remoteService-ref="remoteService" />
 
 </beans>

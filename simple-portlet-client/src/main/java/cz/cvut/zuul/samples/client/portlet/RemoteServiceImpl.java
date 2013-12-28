@@ -45,6 +45,10 @@ public class RemoteServiceImpl implements RemoteService {
     @Value("${resource.quote_uri}") String quoteUri;
 
 
+    public RemoteServiceImpl(OAuth2RestTemplate restTemplate) {
+        this.rest = restTemplate;
+    }
+
     public Quote getQuote(int id) {
         URI url = buildURI(quoteUri, id);
 
@@ -58,8 +62,4 @@ public class RemoteServiceImpl implements RemoteService {
                 .path(path).buildAndExpand(uriVariables)
                 .toUri();
     }
-
-	public void setRestTemplate(OAuth2RestTemplate restTemplate) {
-		this.rest = restTemplate;
-	}
 }

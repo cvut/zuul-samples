@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -44,6 +44,6 @@
 
     <!-- Sample remote service that reads data from simple-provider API -->
     <bean id="remoteService" class="cz.cvut.zuul.samples.client.portlet.RemoteServiceImpl"
-          p:restTemplate-ref="oauthRestTemplate" />
+          c:restTemplate-ref="oauthRestTemplate" />
 
 </beans>

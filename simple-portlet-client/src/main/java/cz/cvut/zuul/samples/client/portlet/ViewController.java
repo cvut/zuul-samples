@@ -39,17 +39,15 @@ public class ViewController {
 
 	private RemoteService remoteService;
 
+    public ViewController(RemoteService remoteService) {
+        this.remoteService = remoteService;
+    }
 
-	@RenderMapping
+    @RenderMapping
 	public String render(Model model) {
         int id = new Random().nextInt(100);
         model.addAttribute("quote", remoteService.getQuote(id));
 
 		return "view";
-	}
-
-
-	public void setRemoteService(RemoteService remoteService) {
-		this.remoteService = remoteService;
 	}
 }

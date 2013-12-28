@@ -26,8 +26,8 @@ package cz.cvut.zuul.samples.provider;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
@@ -39,6 +39,9 @@ public class QuotesController {
 
     private QuotesDao quotesDao;
 
+    public QuotesController(QuotesDao quotesDao) {
+        this.quotesDao = quotesDao;
+    }
 
     @ResponseBody
     @RequestMapping(value="{id}", method=GET)
@@ -51,10 +54,5 @@ public class QuotesController {
     @ExceptionHandler(IllegalArgumentException.class)
     String handleIllegalArgumentException() {
         return "{\"message\": \"Quotation not found\"}";
-    }
-
-
-    public void setQuotesDao(QuotesDao quotesDao) {
-        this.quotesDao = quotesDao;
     }
 }

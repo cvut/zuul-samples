@@ -26,7 +26,7 @@ package cz.cvut.zuul.samples.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -38,11 +38,16 @@ public class RemoteServiceImpl implements RemoteService {
 
     public static final Logger LOG = LoggerFactory.getLogger(RemoteServiceImpl.class);
 
-	private OAuth2RestTemplate rest;
+	private RestTemplate rest;
 
     // will be set from properties file
     @Value("${resource.base_uri}") URI baseUri;
     @Value("${resource.quote_uri}") String quoteUri;
+
+
+    public RemoteServiceImpl(RestTemplate restTemplate) {
+        this.rest = restTemplate;
+    }
 
 
     public Quote getQuote(int id) {
@@ -58,8 +63,4 @@ public class RemoteServiceImpl implements RemoteService {
                 .path(path).buildAndExpand(uriVariables)
                 .toUri();
     }
-
-	public void setRestTemplate(OAuth2RestTemplate restTemplate) {
-		this.rest = restTemplate;
-	}
 }

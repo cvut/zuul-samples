@@ -37,16 +37,15 @@ public class QuoteController {
 
 	private RemoteService remoteService;
 
+    public QuoteController(RemoteService remoteService) {
+        this.remoteService = remoteService;
+    }
 
-	@RequestMapping("/quote")
+    @RequestMapping("/quote")
 	public String getRandomQuote(Model model) {
         int id = new Random().nextInt(100);
         model.addAttribute("quote", remoteService.getQuote(id));
 
 		return "quote";
-	}
-
-	public void setRemoteService(RemoteService remoteService) {
-		this.remoteService = remoteService;
 	}
 }
