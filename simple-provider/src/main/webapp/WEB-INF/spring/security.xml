@@ -17,7 +17,7 @@
     <!-- See docs for EL-based access control http://static.springsource.org/spring-security/site/docs/3.0.x/reference/el-access.html -->
     <sec:http entry-point-ref="oauthAuthenticationEntryPoint"
               authentication-manager-ref="authenticationManager"
-              create-session="ifRequired"
+              create-session="stateless"
               use-expressions="true">
 
         <sec:intercept-url pattern="/api/**"
@@ -51,7 +51,7 @@
             resource-id="${oaas.resource_id}" />
 
     <!-- Token Services that verifies tokens on a remote Authorization Server -->
-    <bean id="tokenServices" class="cz.cvut.oauth.provider.spring.StandaloneResourceServerTokenServices"
+    <bean id="tokenServices" class="cz.cvut.zuul.support.spring.provider.RemoteResourceTokenServices"
           p:restTemplate-ref="checkTokenRestTemplate"
           p:checkTokenEndpointUrl="${oaas.check_token_endpoint}"
           p:method="POST" />

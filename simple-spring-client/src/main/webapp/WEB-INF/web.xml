@@ -6,6 +6,15 @@
 
     <display-name>Simple App</display-name>
 
+    <!--
+        Disable all ServletContainerInitializers, i.e. don't initialize contexts
+        via Java-based configuration.
+
+        If you want to use Java-based configuration (see cz.cvut.zuul.samples.client.config)
+        instead of XMLs, just delete this file.
+     -->
+    <absolute-ordering />
+
 
     <!--//// Contexts ////-->
 

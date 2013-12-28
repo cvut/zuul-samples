@@ -6,6 +6,15 @@
 
     <display-name>simple-api</display-name>
 
+    <!--
+        Disable all ServletContainerInitializers, i.e. don't initialize contexts
+        via Java-based configuration.
+
+        If you want to use Java-based configuration (see cz.cvut.zuul.samples.client.config)
+        instead of XMLs, just delete this file.
+     -->
+    <absolute-ordering />
+
 
     <!--//// Contexts ////-->
 
@@ -13,7 +22,7 @@
         <param-name>webAppRootKey</param-name>
         <param-value>webapp.simple-provider.root</param-value>
     </context-param>
-    
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/spring/root-context.xml</param-value>
@@ -32,7 +41,7 @@
 
 
     <!--//// Filters ////-->
-    
+
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -60,7 +69,7 @@
         <servlet-name>api-dispatcher</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    
+
 
     <!--//// Session ////-->
 

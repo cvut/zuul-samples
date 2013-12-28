@@ -27,6 +27,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>cz.cvut.zuul</groupId>
+            <artifactId>zuul-spring-support</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
         </dependency>
@@ -82,4 +87,30 @@
         </dependency>
     </dependencies>
 
+
+    <!--//////////////////// BUILD ////////////////////-->
+
+    <!--
+        Build with Java-based configs only
+    -->
+    <profiles>
+        <profile>
+            <id>javaconfig</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.3</version>
+                        <configuration>
+                            <classifier>javaconfig</classifier>
+                            <!-- Exclude all XML configs -->
+                            <warSourceExcludes>WEB-INF/web.xml,WEB-INF/spring/*.xml</warSourceExcludes>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
