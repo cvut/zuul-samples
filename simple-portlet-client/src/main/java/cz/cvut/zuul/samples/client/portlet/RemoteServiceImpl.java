@@ -31,9 +31,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 public class RemoteServiceImpl implements RemoteService {
 
     public static final Logger LOG = LoggerFactory.getLogger(RemoteServiceImpl.class);

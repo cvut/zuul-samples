@@ -35,9 +35,6 @@ import java.util.List;
 
 import static javax.xml.bind.DatatypeConverter.parseInt;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 public class FileQuotesDao implements QuotesDao {
 
     private List<Quote> quotes;

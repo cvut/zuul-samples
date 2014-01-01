@@ -23,9 +23,6 @@
  */
 package cz.cvut.zuul.samples.client;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 public interface RemoteService {
 
     Quote getQuote(int id);

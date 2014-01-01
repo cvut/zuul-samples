@@ -29,9 +29,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Random;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 @Controller
 public class QuoteController {
 

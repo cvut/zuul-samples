@@ -30,9 +30,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 @Controller
 @RequestMapping(value="/v1/quotes", produces=APPLICATION_JSON_VALUE)
 public class QuotesController {

@@ -27,9 +27,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

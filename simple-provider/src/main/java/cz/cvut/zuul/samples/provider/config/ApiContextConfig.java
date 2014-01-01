@@ -35,8 +35,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * This configuration is currently used only when the application is
  * initialized via {@link ServletInitializer}, otherwise is ignored.
- *
- * @author Jakub Jirutka <jakub@jirutka.cz>
  */
 @Configuration
 @EnableWebMvc

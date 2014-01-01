@@ -38,8 +38,6 @@ import org.springframework.web.client.RestTemplate;
 /**
  * This configuration is currently used only when the application is
  * initialized via {@link ServletInitializer}, otherwise is ignored.
- *
- * @author Jakub Jirutka <jakub@jirutka.cz>
  */
 @Configuration
 @PropertySource("classpath:/config/client-config.properties")

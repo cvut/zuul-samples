@@ -30,9 +30,6 @@ import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import java.util.Random;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 @Controller
 @RequestMapping("VIEW")
 public class ViewController {

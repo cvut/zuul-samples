@@ -23,9 +23,6 @@
  */
 package cz.cvut.zuul.samples.provider;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 public interface QuotesDao {
 
     Quote getQuote(int id);

@@ -45,8 +45,6 @@ import java.io.IOException;
 /**
  * This configuration is currently used only when the application is
  * initialized via {@link ServletInitializer}, otherwise is ignored.
- *
- * @author Jakub Jirutka <jakub@jirutka.cz>
  */
 @Configuration
 @Import(SecurityConfig.class)

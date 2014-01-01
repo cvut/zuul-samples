@@ -37,8 +37,6 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * {@code absolute-ordering} element) and XML configs are used by default.
  * If you want to use Java-based configuration, simply delete the
  * {@code web.xml} file.</p>
- *
- * @author Jakub Jirutka <jakub@jirutka.cz>
  */
 public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

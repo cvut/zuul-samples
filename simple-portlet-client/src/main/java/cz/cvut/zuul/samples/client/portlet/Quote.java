@@ -25,9 +25,6 @@ package cz.cvut.zuul.samples.client.portlet;
 
 import lombok.Data;
 
-/**
- * @author Jakub Jirutka <jakub@jirutka.cz>
- */
 @Data
 public class Quote {
 
