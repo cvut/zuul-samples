@@ -15,9 +15,9 @@
     <!--//////////////////// MODULES ////////////////////-->
 
     <modules>
-        <module>simple-portlet-client</module>
-        <module>simple-provider</module>
-        <module>simple-spring-client</module>
+        <module>spring-portlet-client</module>
+        <module>spring-provider</module>
+        <module>spring-webapp-client</module>
     </modules>
 
 
