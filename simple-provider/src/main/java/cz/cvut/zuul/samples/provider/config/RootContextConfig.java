@@ -80,7 +80,7 @@ public class RootContextConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
                     .antMatchers("/api/**")
-                        .access("#oauth2.hasScope('urn:ctu:oauth:sample.read')");
+                        .access("#oauth2.hasScope('urn:zuul:oauth:quotes.read')");
         }
 
         private String $(String key) {

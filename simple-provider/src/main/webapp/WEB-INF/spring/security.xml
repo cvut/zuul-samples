@@ -21,7 +21,7 @@
               use-expressions="true">
 
         <sec:intercept-url pattern="/api/**"
-                           access="#oauth2.hasScope('urn:ctu:oauth:sample.read')"
+                           access="#oauth2.hasScope('urn:zuul:oauth:quotes.read')"
                            requires-channel="any" />
 
         <sec:custom-filter ref="resourceServerFilter" position="PRE_AUTH_FILTER" />
