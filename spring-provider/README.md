@@ -13,15 +13,15 @@ You can choose between plain old XML configuration (_web.xml_ and Spring’s XML
 
 ### XML configs
 
-XML configs are located under `src/main/webapp` as usual.
+XML configs are located in [WEB-INF][] as usual.
 
 ### Java configs
 
-Java configs are located in package `cz.cvut.zuul.samples.client.config`.
+Java configs are located in package [cz.cvut.zuul.samples.provider.config][pkg-config].
 
 ### Properties
 
-Both XML and Java configs reads some configuration variables from a properties file `/src/main/resources/config/provider-config.properties`. There are user-specific variables that are often changed.
+Both XML and Java configs reads some configuration variables from a properties file [/src/main/resources/config/provider-config.properties][provider-config]. There are user-specific variables that are often changed.
 
 * **oaas.check_token_endpoint** – URL of the Check-Token Endpoint on the Zuul Authorization Server used for validation of incoming access tokens.
 * **oaas.client_id** – Client identifier that is registered on the authorization server.
@@ -35,3 +35,6 @@ Both XML and Java configs reads some configuration variables from a properties f
 [spring-security-oauth]: http://www.springsource.org/spring-security-oauth
 [WebApplicationInitializer]: http://docs.spring.io/spring/docs/3.2.x/javadoc-api/org/springframework/web/WebApplicationInitializer.html
 [Configuration]: http://docs.spring.io/spring/docs/3.2.x/javadoc-api/org/springframework/context/annotation/Configuration.html
+[WEB-INF]: src/main/webapp/WEB-INF
+[pkg-config]: src/main/java/cz/cvut/zuul/samples/provider/config
+[provider-config]: src/main/resources/config/provider-config.properties

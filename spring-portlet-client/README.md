@@ -9,11 +9,10 @@ It’s implemented on top of well-known [Spring Framework][spring-framework] and
 Settings
 --------
 
-Configuration variables are located in `/src/main/webapp/WEB-INF/client-config.properties`. These values are included in `WEB-INF/spring/root.xml` where is the Spring root context configured.
+Configuration variables are located in [/WEB-INF/client-config.properties][client-config]. These values are included in [/WEB-INF/spring/root.xml][root-context] where is the Spring root context configured.
 
 * **resource.base_uri** – Base URI of the Quotes Provider API.
 * **resource.quote_uri** – URI of the quote resource, relative to Base URI.
-
 * **oauth.client_id** – Identifier of the client application that is registered on the authorization server.
 * **oauth.client_secret** – Secret key of the client application.
 * **oauth.scope** – Scope of the authorized privileges.
@@ -22,3 +21,5 @@ Configuration variables are located in `/src/main/webapp/WEB-INF/client-config.p
 
 [spring-framework]: http://www.springsource.org/spring-framework
 [spring-security-oauth]: http://www.springsource.org/spring-security-oauth
+[client-config]: src/main/webapp/WEB-INF/client-config.properties
+[root-context]: src/main/webapp/WEB-INF/spring/root-context.xml
