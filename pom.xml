@@ -31,14 +31,13 @@
     <name>Zuul Samples</name>
 
     <scm>
-        <url>https://gitlab.fit.cvut.cz/jirutjak/ctu-oauth-samples</url>
-        <connection>scm:git:ssh://git@gitlab.fit.cvut.cz:jirutjak/ctu-oauth-samples.git</connection>
-        <developerConnection>scm:git:ssh://git@gitlab.fit.cvut.cz:jirutjak/ctu-oauth-samples.git</developerConnection>
+        <url>https://github.com/cvut/zuul-samples</url>
+        <connection>scm:git:ssh://git@github.com:cvut/zuul-samples.git</connection>
     </scm>
 
     <issueManagement>
-        <system>GitLab</system>
-        <url>https://gitlab.fit.cvut.cz/jirutjak/ctu-oauth-samples/issues</url>
+        <system>GitHub</system>
+        <url>https://github.com/cvut/zuul-samples/issues</url>
     </issueManagement>
 
 
