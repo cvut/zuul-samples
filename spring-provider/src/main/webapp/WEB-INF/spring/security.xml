@@ -52,17 +52,16 @@
 
     <!-- Token Services that verifies tokens on a remote Authorization Server -->
     <bean id="tokenServices" class="cz.cvut.zuul.support.spring.provider.RemoteResourceTokenServices"
-          p:restTemplate-ref="checkTokenRestTemplate"
-          p:checkTokenEndpointUrl="${oaas.check_token_endpoint}"
-          p:method="POST" />
+          p:restTemplate-ref="tokenInfoRestTemplate"
+          p:tokenInfoEndpointUrl="${oaas.tokeninfo_endpoint}" />
 
 
 
     <!--//// OAuth2 Client for remote Check Token Endpoint ////-->
 
-    <oauth:rest-template id="checkTokenRestTemplate" resource="check-token-resource" />
+    <oauth:rest-template id="tokenInfoRestTemplate" resource="tokeninfo-resource" />
 
-    <oauth:resource id="check-token-resource"
+    <oauth:resource id="tokeninfo-resource"
             type="client_credentials"
             client-id="${oaas.client_id}"
             client-secret="${oaas.client_secret}"

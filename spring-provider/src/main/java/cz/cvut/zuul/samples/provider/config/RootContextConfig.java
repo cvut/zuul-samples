@@ -64,7 +64,7 @@ public class RootContextConfig {
 
         protected ResourceServerTokenServices getResourceServerTokenServices() {
             return new RemoteResourceTokenServicesBuilder()
-                    .checkTokenEndpointUri( $("oaas.check_token_endpoint") )
+                    .tokenInfoEndpointUri( $("oaas.tokeninfo_endpoint") )
                     .secured()
                         .clientId( $("oaas.client_id") )
                         .clientSecret( $("oaas.client_secret") )

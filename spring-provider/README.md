@@ -1,7 +1,7 @@
 Spring OAuth 2.0 Resource Provider
 ==================================
 
-This project is a simple web application with RESTful API that acts as a standalone OAuth 2.0 _resource provider_. Tokens are checked against remote Zuul Authorization Server via its Check-Token Endpoint. This means that the application acts as a OAuth client as well.
+This project is a simple web application with RESTful API that acts as a standalone OAuth 2.0 _resource provider_. Tokens are verified against remote Zuul Authorization Server via its TokenInfo Endpoint. This means that the application acts as a OAuth client as well.
 
 It’s implemented on top of well-known [Spring Framework][spring-framework] and uses [Spring Security OAuth2][spring-security-oauth] for the OAuth part.
 
@@ -23,10 +23,10 @@ Java configs are located in package [cz.cvut.zuul.samples.provider.config][pkg-c
 
 Both XML and Java configs reads some configuration variables from a properties file [/src/main/resources/config/provider-config.properties][provider-config]. There are user-specific variables that are often changed.
 
-* **oaas.check_token_endpoint** – URL of the Check-Token Endpoint on the Zuul Authorization Server used for validation of incoming access tokens.
+* **oaas.tokeninfo_endpoint** – URL of the TokenInfo Endpoint on the Zuul Authorization Server used for validation of incoming access tokens.
 * **oaas.client_id** – Client identifier that is registered on the authorization server.
 * **oaas.client_secret** – Secret key.
-* **oaas.scope** – Scope required by the Check-Token Endpoint. Zuul OAAS uses `urn:zuul:oauth:oaas:check-token`.
+* **oaas.scope** – Scope required by the TokenInfo Endpoint. Zuul OAAS uses `urn:zuul:oauth:oaas:tokeninfo`.
 * **oaas.token_endpoint** – URL of the Token Endpoint on the authorization server to obtain an access token.
 * **oaas.resource_id** – Identifier of this resource provider.
 
