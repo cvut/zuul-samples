@@ -35,7 +35,7 @@ public class RemoteServiceImpl implements RemoteService {
 
     public static final Logger LOG = LoggerFactory.getLogger(RemoteServiceImpl.class);
 
-	private RestTemplate rest;
+    private RestTemplate rest;
 
     // will be set from properties file
     @Value("${resource.base_uri}") URI baseUri;

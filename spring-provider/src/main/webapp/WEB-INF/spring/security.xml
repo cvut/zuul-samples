@@ -41,7 +41,7 @@
 
 
     <!--//// OAuth2 Resource Provider configuration ////-->
-    
+
     <!--
         Loads an instance of OAuth2AuthenticationProcessingFilter.
         If resource-id is set, then only tokens that contains this resource id will be accepted.

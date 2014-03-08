@@ -11,9 +11,9 @@
         <ajaxable>false</ajaxable>
     </portlet>
 
-    
+
     <!--///// Roles /////-->
-    
+
     <role-mapper>
         <role-name>administrator</role-name>
         <role-link>Administrator</role-link>

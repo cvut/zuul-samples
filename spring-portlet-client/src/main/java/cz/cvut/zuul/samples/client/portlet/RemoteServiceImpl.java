@@ -35,7 +35,7 @@ public class RemoteServiceImpl implements RemoteService {
 
     public static final Logger LOG = LoggerFactory.getLogger(RemoteServiceImpl.class);
 
-	private OAuth2RestTemplate rest;
+    private OAuth2RestTemplate rest;
 
     // will be set from properties file
     @Value("${resource.base_uri}") URI baseUri;

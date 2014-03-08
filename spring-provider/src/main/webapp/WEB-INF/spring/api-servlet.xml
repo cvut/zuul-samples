@@ -17,5 +17,5 @@
 
     <bean id="quotesController" class="cz.cvut.zuul.samples.provider.QuotesController"
           c:quotesDao-ref="quotesDao" />
-    
+
 </beans>

@@ -32,17 +32,17 @@ import java.util.Random;
 @Controller
 public class QuoteController {
 
-	private RemoteService remoteService;
+    private RemoteService remoteService;
 
     public QuoteController(RemoteService remoteService) {
         this.remoteService = remoteService;
     }
 
     @RequestMapping("/quote")
-	public String getRandomQuote(Model model) {
+    public String getRandomQuote(Model model) {
         int id = new Random().nextInt(100);
         model.addAttribute("quote", remoteService.getQuote(id));
 
-		return "quote";
-	}
+        return "quote";
+    }
 }

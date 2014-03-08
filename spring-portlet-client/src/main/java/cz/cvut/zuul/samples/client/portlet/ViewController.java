@@ -34,17 +34,17 @@ import java.util.Random;
 @RequestMapping("VIEW")
 public class ViewController {
 
-	private RemoteService remoteService;
+    private RemoteService remoteService;
 
     public ViewController(RemoteService remoteService) {
         this.remoteService = remoteService;
     }
 
     @RenderMapping
-	public String render(Model model) {
+    public String render(Model model) {
         int id = new Random().nextInt(100);
         model.addAttribute("quote", remoteService.getQuote(id));
 
-		return "view";
-	}
+        return "view";
+    }
 }

@@ -25,5 +25,5 @@
 
     <bean id="quotesDao" class="cz.cvut.zuul.samples.provider.FileQuotesDao"
           c:quotesFile="classpath:/quotes.txt" />
-    
+
 </beans>
