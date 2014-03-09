@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -12,23 +10,26 @@
     </parent>
 
 
-    <!--//////////////////// MODULES ////////////////////-->
-
-    <modules>
-        <module>spring-portlet-client</module>
-        <module>spring-provider</module>
-        <module>spring-webapp-client</module>
-    </modules>
-
-
     <!--//////////////////// DESCRIPTION ////////////////////-->
 
     <groupId>cz.cvut.zuul.samples</groupId>
     <artifactId>zuul-samples</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Zuul Samples</name>
+    <description>Sample applications using Zuul components.</description>
+    <url>https://github.com/cvut/zuul-samples</url>
+    <inceptionYear>2013</inceptionYear>
+
+
+    <!--//////////////////// DISTRIBUTION ////////////////////-->
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
 
     <scm>
         <url>https://github.com/cvut/zuul-samples</url>
@@ -39,6 +40,15 @@
         <system>GitHub</system>
         <url>https://github.com/cvut/zuul-samples/issues</url>
     </issueManagement>
+
+
+    <!--//////////////////// MODULES ////////////////////-->
+
+    <modules>
+        <module>spring-portlet-client</module>
+        <module>spring-provider</module>
+        <module>spring-webapp-client</module>
+    </modules>
 
 
     <!--//////////////////// DEPENDENCIES ////////////////////-->
