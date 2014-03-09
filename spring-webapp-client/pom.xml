@@ -21,6 +21,13 @@
     <description>Sample OAuth 2.0 client using client_credentials grant implemented as web application.</description>
 
 
+    <!--//////////////////// PROPERTIES ////////////////////-->
+
+    <properties>
+        <spring.oauth.version>2.0.0.M3</spring.oauth.version>
+    </properties>
+
+
     <!--//////////////////// DEPENDENCIES ////////////////////-->
 
     <dependencies>
