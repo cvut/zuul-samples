@@ -6,7 +6,7 @@
     <parent>
         <groupId>cz.cvut.zuul.samples</groupId>
         <artifactId>zuul-samples</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0.M1</version>
     </parent>
 
 
