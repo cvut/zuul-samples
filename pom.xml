@@ -45,7 +45,6 @@
     <!--//////////////////// MODULES ////////////////////-->
 
     <modules>
-        <module>spring-portlet-client</module>
         <module>spring-provider</module>
         <module>spring-webapp-client</module>
     </modules>
