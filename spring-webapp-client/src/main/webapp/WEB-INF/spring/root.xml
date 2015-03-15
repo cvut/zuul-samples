@@ -33,7 +33,6 @@
                     client-id="${oauth.client_id}"
                     client-secret="${oauth.client_secret}"
                     access-token-uri="${oauth.token_endpoint}"
-                    client-authentication-scheme="form"
                     scope="${oauth.scope}" />
 
     <!--

@@ -26,8 +26,6 @@ package cz.cvut.zuul.samples.provider.config;
 import cz.cvut.zuul.samples.provider.FileQuotesDao;
 import cz.cvut.zuul.samples.provider.QuotesDao;
 import cz.cvut.zuul.samples.provider.config.RootContextConfig.SecurityConfig;
-import cz.cvut.zuul.support.spring.provider.OAuth2ResourceServerConfigurerAdapter;
-import cz.cvut.zuul.support.spring.provider.RemoteResourceTokenServicesBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,8 +35,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
-import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 
 import java.io.IOException;
 
@@ -58,30 +58,32 @@ public class RootContextConfig {
 
     @Configuration
     @EnableWebSecurity
-    public static class SecurityConfig extends OAuth2ResourceServerConfigurerAdapter {
+    @EnableResourceServer
+    public static class SecurityConfig implements ResourceServerConfigurer {
 
         @Autowired Environment env;
 
-        protected ResourceServerTokenServices getResourceServerTokenServices() {
-            return new RemoteResourceTokenServicesBuilder()
-                    .tokenInfoEndpointUri( $("oaas.tokeninfo_endpoint") )
-                    .secured()
-                        .clientId( $("oaas.client_id") )
-                        .clientSecret( $("oaas.client_secret") )
-                        .scope( $("oaas.scope") )
-                        .accessTokenUri( $("oaas.token_endpoint") )
-                        .clientAuthenticationScheme(AuthenticationScheme.form)
-                    .build();
+        public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+            resources
+                .tokenServices( remoteTokenServices() )
+                .resourceId( p("oaas.resource_id") );
         }
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
+        public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
                     .antMatchers("/api/**")
                         .access("#oauth2.hasScope('urn:zuul:oauth:quotes.read')");
         }
 
-        private String $(String key) {
+        @Bean RemoteTokenServices remoteTokenServices() {
+            RemoteTokenServices s = new RemoteTokenServices();
+            s.setCheckTokenEndpointUrl( p("oaas.endpoint.check_token") );
+            s.setClientId( p("oaas.client_id") );
+            s.setClientSecret( p("oaas.client_secret") );
+            return s;
+        }
+
+        private String p(String key) {
             return env.getProperty(key);
         }
     }

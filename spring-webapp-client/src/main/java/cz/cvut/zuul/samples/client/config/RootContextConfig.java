@@ -25,25 +25,31 @@ package cz.cvut.zuul.samples.client.config;
 
 import cz.cvut.zuul.samples.client.RemoteService;
 import cz.cvut.zuul.samples.client.RemoteServiceImpl;
-import cz.cvut.zuul.support.spring.client.OAuth2RestTemplateBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
+import org.springframework.security.oauth2.client.OAuth2ClientContext;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.web.client.RestTemplate;
+
+import static java.util.Collections.singletonList;
 
 /**
  * This configuration is currently used only when the application is
  * initialized via {@link ServletInitializer}, otherwise is ignored.
  */
 @Configuration
+@EnableOAuth2Client
 @PropertySource("classpath:/config/client-config.properties")
 public class RootContextConfig {
 
     @Autowired Environment env;
+    @Autowired OAuth2ClientContext oauth2Context;
 
 
     @Bean static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
@@ -51,22 +57,22 @@ public class RootContextConfig {
     }
 
     @Bean RestTemplate oauthRestTemplate() {
-        return new OAuth2RestTemplateBuilder()
-                .clientCredentialsGrant()
-                    .id("sample")
-                    .clientId( $("oauth.client_id") )
-                    .clientSecret( $("oauth.client_secret") )
-                    .scope( $("oauth.scope") )
-                    .accessTokenUri( $("oauth.token_endpoint") )
-                    .clientAuthenticationScheme(AuthenticationScheme.form)
-                .build();
+        AuthorizationCodeResourceDetails r = new AuthorizationCodeResourceDetails();
+        r.setId("sample");
+        r.setClientId( p("oauth.client_id") );
+        r.setClientSecret( p("oauth.client_secret") );
+        r.setScope(singletonList( p("oauth.scope") ));
+        r.setAccessTokenUri( p("oauth.token_endpoint") );
+
+        return new OAuth2RestTemplate(r, oauth2Context);
     }
 
     @Bean RemoteService remoteService() {
         return new RemoteServiceImpl(oauthRestTemplate());
     }
 
-    private String $(String key) {
+
+    private String p(String key) {
         return env.getProperty(key);
     }
 }
